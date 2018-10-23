@@ -1,8 +1,35 @@
 .top-bar{
     max-width: 100%;
-    background: cornflowerblue;   
+    background: #323232;   
 }
 
-.placeholder{
-    color:red;
+.top-bar .h1{
+    color: #2eb398;
+    z-index: 2;
+}
+
+.search-box{
+    z-index: 3;
+    border-radius: 5px;
+    height: 60px;
+}
+
+.logo-box{
+    font-size: 50px;
+    background: #323232;
+    position: absolute;
+    left: 43%;
+    top: -122px;
+    font-size: 20px;
+    text-align: center;
+    width: 200px;
+    height: 206px;
+    margin: auto;
+    transform: rotateZ(45deg);
+}
+
+.logo{
+    font-size: 50px;
+    transform: rotateZ(134deg);
+    margin: 0;
 }
