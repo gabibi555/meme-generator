@@ -5,19 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/Helpers.css">
-    <!-- <link rel="stylesheet" href="css/gridHelpers.css"> -->
+    <link rel="stylesheet" href="css/gridHelpers.css">
     <link rel="stylesheet" href="css/resetPage.css">
-    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/top-bar.css">
+    <link rel="stylesheet" href="css/main.css">
 
     
     <title>Meme Me</title>
 </head>
-<body>
-    <div class="top-bar flex align-center space-around">
+<body onload="init()">
+    <div class="top-bar flex align-center space-between">
         <h1 class="">Just Generate</h1>
         <input class="search-box flex" type="text" name="search" placeholder="Search Meme by theme">
+        <div class="logo-box flex align-center space-around"><h2 class="logo">⚡</h2></div>
     </div>
-    <div class="logo-box flex align-center space-around"><h2 class="logo">⚡</h2></div>
+    <div class="grid-main">
+            <div class="grid-container ">
+                    <div class="sand-box flex space-between">
+                        <div class="related-img space-around"></div>
+                        <div class="control-panel">hey</div>
+                    <canvas></canvas> 
+                    </div>
+                    <div class="gird-card">
+                    </div>   
+                  </div>
+    </div>
+    <script src="js/util.js"></script>
+    <script src="js/Main.js"></script>
+    <script src="js/service.js"></script>
 </body>
 </html>
+        

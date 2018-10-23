@@ -1,0 +1,25 @@
+.photo-item{
+    min-width: 100%;
+    min-height: 100%;  
+}
+
+h1{
+    margin:0;
+    font-size: 60px;
+    z-index: 2;
+}
+.sand-box{
+    max-width:970px;
+    padding: 5px;
+}
+.related-img{
+   background:  #323232a3;
+}
+.control-panel{
+    min-width: 216px;
+    background: yellowgreen
+}
+
+
+
+

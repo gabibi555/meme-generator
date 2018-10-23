@@ -1,11 +1,12 @@
 .top-bar{
     max-width: 100%;
     background: #323232;   
+    padding: 10px;
 }
 
 .top-bar .h1{
     color: #2eb398;
-    z-index: 2;
+    z-index: 5;
 }
 
 .search-box{
@@ -26,6 +27,7 @@
     height: 206px;
     margin: auto;
     transform: rotateZ(45deg);
+    align-items: unset;
 }
 
 .logo{

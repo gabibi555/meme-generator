@@ -6,7 +6,7 @@ html{
     font-family: lato, serif;
     font-weight: 400;
     color: #597c54;
-    font-size: 16px;
+    font-size: 30px;
 }
 
 body{
@@ -17,6 +17,7 @@ ul{
     margin-top: 0px;
     padding: 0px
 }
+
 a{
     text-decoration: none;
 }
