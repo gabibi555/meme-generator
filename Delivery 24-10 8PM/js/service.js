@@ -32,13 +32,35 @@ function getImgUrl(imgId) {
 }
 
 function getSimilarKeyWord(keyword) {
-    let relatedImgs=[]
-        gImgs.map(img => {
-        if(img.keyword === keyword) {
+    let relatedImgs = []
+    gImgs.map(img => {
+        if (img.keyword === keyword) {
             relatedImgs.push(img)
         }
     })
     return relatedImgs;
+}
+function searchValue(keyword) {
+    console.log(keyword)
+    if(!keyword){
+       return renderImgs()
+    }
+    let relatedImgs = []
+    gImgs.map(img => {
+        if (img.keyword === keyword) {
+            relatedImgs.push(img)
+        }
+    })
+    renderImgs(relatedImgs);
+}
+
+function renderText(txt) {
+    if (!gMeme.isInput) {
+        inputOnCanvas()
+        gMeme.isInput = true
+    } else{
+
+    }
 }
 
 

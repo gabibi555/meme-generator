@@ -1,6 +1,12 @@
 'use strict';
 
-
+var gMeme = {
+    isInput:false,
+    txtUp:'',
+    txtDown:'',
+    size:'',
+    color:'',
+}
 
 function init() {
     renderImgs()
@@ -16,13 +22,13 @@ function renderCanvas() {
 function renderRelated(relatedImgs) {
     console.log(relatedImgs)
     let img = relatedImgs;
-    let strHtmls = relatedImgs.map(img =>{
-        return   `<div class="item flex">
+    let strHtmls = relatedImgs.map(img => {
+        return `<div class="item flex">
                     <img id="${img.id}" class="photo-item"src="${img.url}" onclick="getImgToCanvas(this.id)" alt=""></img>
                   </div>`
     })
-    document.querySelector('.related-img').innerHTML = strHtmls.join(" ")
-    console.log(document.querySelector('.related-img'));
+    document.querySelector('.related-img').innerHTML = strHtmls.join(" ");
+
 }
 
 function renderImgToCanvas(currImg) {
@@ -36,16 +42,28 @@ function renderImgToCanvas(currImg) {
     img.onload = function () {
         ctx.drawImage(img, (c.width / 2) - (img.width / 2), 0, img.width, c.height);
     }
+    document.querySelector('.sand-box').classList.remove("display-none")
+ 
 }
 
-function renderImgs() {
-    let img = gImgs
-    var strHtmls = gImgs.map(function (img) {
-        return `<div id="${img.id}" class="item flex" onclick="getImgToCanvas(this.id)">
-                <img class="photo-item" src="${img.url}" alt="">
-         </div>`
+function renderImgs(searchImgs) {
+    if (searchImgs) {
+        let img = searchImgs
+        var strHtmls = searchImgs.map(function (img) {
+            return `<div id="${img.id}" class="item flex" onclick="getImgToCanvas(this.id)">
+                    <img class="photo-item" src="${img.url}" alt="">
+             </div>`
 
-    })
+        })
+    } else {
+        let img = searchImgs
+        var strHtmls = gImgs.map(function (img) {
+            return `<div id="${img.id}" class="item flex" onclick="getImgToCanvas(this.id)">
+                    <img class="photo-item" src="${img.url}" alt="">
+             </div>`
+        })
+    }
+
     document.querySelector(".gird-card").innerHTML = strHtmls.join(" ")
 }
 
@@ -54,4 +72,5 @@ function getImgToCanvas(imgId) {
     renderImgToCanvas(currImg[0].url)
     let relatedImgs = getSimilarKeyWord(currImg[0].keyword)
     renderRelated(relatedImgs)
+    renderImgs()
 }

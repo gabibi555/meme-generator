@@ -2,6 +2,15 @@
     min-width: 100%;
     min-height: 100%;  
 }
+img:hover{
+    cursor: pointer;
+}
+input{
+    display: block;
+}
+span{
+    padding:10px;
+}
 
 h1{
     margin:0;
@@ -11,13 +20,21 @@ h1{
 .sand-box{
     max-width:970px;
     padding: 5px;
+    padding-top: 50px;
 }
 .related-img{
    background:  #323232a3;
 }
 .control-panel{
     min-width: 216px;
-    background: yellowgreen
+    background: yellowgreen;
+    padding: 20px;
+}
+.text-input{
+   padding:10px
+}
+.color-input{
+    width: 100px;
 }
 
 

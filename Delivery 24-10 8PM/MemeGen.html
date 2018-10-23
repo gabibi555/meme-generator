@@ -16,16 +16,26 @@
 <body onload="init()">
     <div class="top-bar flex align-center space-between">
         <h1 class="">Just Generate</h1>
-        <input class="search-box flex" type="text" name="search" placeholder="Search Meme by theme">
+        <input oninput="searchValue(value)" class="search-box flex" type="text" name="search" placeholder="Search Meme by theme">
         <div class="logo-box flex align-center space-around"><h2 class="logo">⚡</h2></div>
     </div>
     <div class="grid-main">
-            <div class="grid-container ">
-                    <div class="sand-box flex space-between">
+            <div class="grid-container">
+                    <div class="sand-box flex space-between display-none">
                         <div class="related-img space-around"></div>
-                        <div class="control-panel">hey</div>
+                        <div class="control-panel flex flex-column">
+                            <span>Top Text:</span> 
+                            <input onkeyup="renderTextUp(value)" class="text-input" type="text" placeholder="Put Text Here" name="text" value="">
+                            <span>Bottom Text:</span> 
+                            <input onkeyup="renderTextDown(value)" class="text-input" type="text" placeholder="Put Text Here" name="text" value="">
+                            <span>Font-Size:</span> 
+                            <input onchange="changeFont(this.value)" type="range" min="18" max="120" name="age" step="1" id=""/>
+                            <span>pick:</span>
+                            <input class="color-input" type="color" name="color" value="color">  
+                        </div>
                     <canvas></canvas> 
                     </div>
+                    <h1>Pick A photo</h1>
                     <div class="gird-card">
                     </div>   
                   </div>
@@ -33,6 +43,8 @@
     <script src="js/util.js"></script>
     <script src="js/Main.js"></script>
     <script src="js/service.js"></script>
+    <script src="js/CanvasInput.min.js"></script>
+    <script src="js/CanvasInput.js"></script>
 </body>
 </html>
         
