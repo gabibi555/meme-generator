@@ -1,0 +1,260 @@
+
+@media only screen and (max-width: 500px) {
+    .logo-box{
+        background: none;
+        left: 65%;
+        transform: rotateZ(0deg)
+    }
+    .top-bar{
+        padding:5px;
+    }
+    .logo{
+        transform: rotateZ(0deg)
+    }
+    .sand-box{
+        display: flex;
+        flex-direction: column;
+        padding-top: 5px !important;   
+    }
+    .grid-container{
+        max-width: 97%;
+    }
+    .grid-main{
+        padding: 0 !important;
+    }
+    .related-img{
+        display: none;
+    }
+    .display-none{
+        display: none;
+    }
+    .control-panel {
+       height: 200px;
+       display:none;
+    }
+    .Moblie-UI{
+        display: flex !important;
+        flex-direction: column;
+    }
+    .social-bar{
+        display: none !important;
+    }
+    .moblie-color-input{
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.308);
+        border: none;
+        transition: .3s;
+    }
+    .moblie-color-input::-webkit-color-swatch {
+        border-radius: 50%;
+    }
+    span{
+        color: #eed123;
+    }
+
+}
+.Moblie-UI{
+display:none;
+background: #4d4d4d;
+padding:5px;
+border:1px solid ;
+border-radius: 10px;
+}
+.moblie-control{
+width: 100%;
+background:  #858686;
+padding:10px;
+margin-top: 5px;
+display:flex;
+border-radius: 10px;
+}
+
+.moblie-control button{
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+.delete-btn{
+    background:rgba(191,42,42,1);
+    margin:3px;
+    border:1px solid black;
+    border-radius: 10px;
+    color: black(191,42,42,1);
+    box-shadow:0px 0px 4px 1p rgba(191,42,42,1);
+}
+button:active{
+    box-shadow: 0 3px #666;
+    transform: translateY(4px);
+}
+.add-btn{
+    margin:3px;
+    border:1px solid black;
+    color: black(191,42,42,1);;
+    border-radius: 10px;
+    background: rgba(42,189,46,1);
+    box-shadow:x rgba(42,189,46,1);
+}
+.moblie-color-input{
+    margin: 0;
+    margin-top: 5px;
+}
+.download-btn-moblie{
+    margin: auto;
+    margin-top:5px;
+}
+
+.text-moblie-control{
+    background:  #858686;
+    padding:10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.moblie-line-control{
+    height: 50px;
+    padding: 5px;
+}
+.text-moblie-control button{
+     color: #eed123;
+    border: 1px solid black;
+    font-size: 20px;
+    padding:10px;
+    margin-top: 5px;
+    border-radius: 10px
+}
+.movement-txt{
+    color:black;
+    margin: 0 auto;
+    font-size:20px;
+}
+
+.photo-item{
+    min-width: 100%;
+    min-height: 100%;  
+    object-fit: cover;
+}
+img:hover{
+    cursor: pointer;
+}
+input{
+    display: block;
+}
+span{
+    color: #eed123;
+    font-size: 20px;
+    padding:10px;
+}
+
+h1{
+    margin:0;
+    font-size: 60px;
+    z-index: 2;
+}
+.sand-box{
+    max-width:970px;
+    padding: 20px;
+    padding-top: 50px;
+    margin: auto;
+    background: #858686;
+    padding-bottom: 20px;
+}
+.related-img{
+   background:  #323232a3;
+}
+
+.control-panel{
+    background: #4d4d4d;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    height: 400px;
+    justify-content: space-between;
+    -webkit-box-shadow: inset 0px 0px 10px 6px rgba(0,0,0,0.47);
+    -moz-box-shadow: inset 0px 0px 10px 6px rgba(0,0,0,0.47);
+    box-shadow: inset 0px 0px 10px 6px rgba(0,0,0,0.47);
+    margin-bottom: 5px;
+}
+.input-controls{
+    padding: 5px 5px 10px 5px;
+}
+.text-input{
+   padding:10px;
+   height: 35px;
+   border-radius: 15px;
+}
+.color-input{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.308);
+    border: none;
+    transition: .3s;
+}
+.color-input:hover {
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, 0.603);
+}
+
+.color-input::-webkit-color-swatch {
+    border-radius: 50%;
+}
+
+.position-arrows button {
+    color: #eed123;
+    font-size: 22px;
+    border:1px solid;
+    border-radius: 20px
+}
+
+.position-arrow-top{
+    transform: rotateZ(90deg);
+    padding-left: 42px; 
+    font-weight: 700;
+}
+.down-arrow{
+    z-index: 4;
+    font-size: 16px;
+    color: #eed123;
+    border: 1px solid;
+    border-radius: 5px;
+}
+.up-arrow{
+    color: #eed123;
+    font-size: 16px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+.download-btn{
+    display: block;
+    font-size: 20px;
+    padding:10px;
+}
+.facebook-btn{
+    display: block;
+    font-size: 20px;
+    color: #3b5998;
+    padding:10px;
+}
+.social-btn{
+    display:flex;
+    font: 600;
+    justify-content: end;
+    padding:10px;
+    background: #a3a3a3;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0px 0px 10px 6px rgba(0,0,0,0.47);
+    -moz-box-shadow: inset 0px 0px 10px 6px rgba(0,0,0,0.47);
+    box-shadow: inset 0px 0px 10px 6px rgba(0,0,0,0.47);
+}
+
+
+
+
+
+
+

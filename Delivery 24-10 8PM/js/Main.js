@@ -1,16 +1,9 @@
 'use strict';
 
-var gMeme = {
-    isInput:false,
-    txtUp:'',
-    txtDown:'',
-    size:'',
-    color:'',
-}
-
 function init() {
     renderImgs()
     renderCanvas()
+    document.querySelector('.text-input').addEventListener("keypress", keyPressed);
 }
 
 function renderCanvas() {
@@ -19,58 +12,98 @@ function renderCanvas() {
     gCanvas.width = 450;
     gCanvas.height = 450;
 }
+
 function renderRelated(relatedImgs) {
-    console.log(relatedImgs)
-    let img = relatedImgs;
     let strHtmls = relatedImgs.map(img => {
         return `<div class="item flex">
                     <img id="${img.id}" class="photo-item"src="${img.url}" onclick="getImgToCanvas(this.id)" alt=""></img>
                   </div>`
     })
     document.querySelector('.related-img').innerHTML = strHtmls.join(" ");
-
 }
 
 function renderImgToCanvas(currImg) {
-    var c = document.querySelector("canvas");
-    var ctx = c.getContext("2d");
-    var img = new Image;
-    console.log(img)
-    ctx.fillStyle = "#000";
-    ctx.fillRect(0, 0, c.width, c.height);
+    let img = new Image;
+    gCtx.fillRect(0, 0, c.width, c.height);
     img.src = `${currImg}`
-    img.onload = function () {
-        ctx.drawImage(img, (c.width / 2) - (img.width / 2), 0, img.width, c.height);
-    }
+    gCtx.drawImage(img, (c.width / 2) - (img.width / 2), 0, img.width, c.height);
     document.querySelector('.sand-box').classList.remove("display-none")
- 
+}
+
+function renderText() {
+    let txtsToRender = gMeme.txts
+    renderImgToCanvas(gMeme.currImg.url)
+         txtsToRender.forEach(txt =>{
+             console.log(txt)
+            gCtx.font = (txt.size + txt.font)
+            gCtx.fillStyle = txt.color
+            gCtx.textAlign = 'center'
+            gCtx.fillText(txt.str, 225, txt.posY);
+            gCtx.strokeText(txt.str, 225, txt.posY)
+ })
 }
 
 function renderImgs(searchImgs) {
-    if (searchImgs) {
-        let img = searchImgs
-        var strHtmls = searchImgs.map(function (img) {
-            return `<div id="${img.id}" class="item flex" onclick="getImgToCanvas(this.id)">
+    let imgs = (searchImgs) ? searchImgs : gImgs;
+    let strHtmls = imgs.map(function (img) {
+        return `<div id="${img.id}" class="item flex" onclick="getImgToCanvas(this.id)">
                     <img class="photo-item" src="${img.url}" alt="">
-             </div>`
-
-        })
-    } else {
-        let img = searchImgs
-        var strHtmls = gImgs.map(function (img) {
-            return `<div id="${img.id}" class="item flex" onclick="getImgToCanvas(this.id)">
-                    <img class="photo-item" src="${img.url}" alt="">
-             </div>`
-        })
-    }
-
+                </div>`
+    })
     document.querySelector(".gird-card").innerHTML = strHtmls.join(" ")
 }
 
 function getImgToCanvas(imgId) {
     let currImg = getImgUrl(imgId)
-    renderImgToCanvas(currImg[0].url)
-    let relatedImgs = getSimilarKeyWord(currImg[0].keyword)
+    gMeme.currImg = currImg
+    renderImgToCanvas(currImg.url)
+    let relatedImgs = getSimilarKeyWord(currImg.keyword)
     renderRelated(relatedImgs)
-    renderImgs()
+}
+
+function changeFont(elInput) {
+    let idx = +elInput.dataset.idx
+    let fontSize = gMeme.txts[idx]
+    document.querySelector('.font-size-num').innerHTML = elInput.value + 'px'
+    fontSize.size = elInput.value + 'px '
+    renderText()
+}
+
+function changeColor(colorId) {
+    let currColor = updateColor(colorId)
+    renderText()
+}
+
+function getText(elInput) {
+    let idx = +elInput.dataset.idx;
+    updateText(elInput.value, idx)
+    renderText()
+}
+
+function textPosUp(elInput) {
+    let idx = +elInput.dataset.idx;
+    gY = gY - 15;
+    let yPostion = gMeme.txts[idx];
+    yPostion.posY = gY;
+    renderText()
+}
+
+function textPosDown(elInput) {
+    let idx = +elInput.dataset.idx;
+    gY = gY + 15;
+    let yPostion = gMeme.txts[idx];
+    yPostion.posY = gY;
+    renderText()
+}
+
+function keyPressed(k) {
+    if (k.key ==='Enter'){
+        let txtToPush = Object.assign({},gMeme.txts[0])
+        gMeme.txts.push(txtToPush)
+        document.querySelector('.text-input').value = "Put Text Here"
+       let elInputs = document.querySelectorAll('[data-idx]')
+       elInputs.forEach(input =>{
+        input.dataset.idx ++
+       })
+    }   
 }

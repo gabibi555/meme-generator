@@ -20,12 +20,8 @@
     background: #323232;
     position: absolute;
     left: 43%;
-    /* top: -122px; */
-    /* font-size: 20px; */
-    /* text-align: center; */
     width: 117px;
     height: 77px;
-    /* margin: auto; */
     transform: rotateZ(45deg);
     align-items: unset;
 }
@@ -35,4 +31,15 @@
     transform: rotateZ(-46deg);
     position: absolute; /*in order to fix him inside the div*/
     left: 36%;/*should change dinamicaly with media queries */
+   
+}
+.animation{
+    animation:spin 5s linear infinite; 
+}
+
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+canvas {
+    padding: 0;
+    display: block;
 }

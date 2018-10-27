@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/helpers.css">
+    <link rel="stylesheet" href="css/gridhelpers.css">
+    <link rel="stylesheet" href="css/resetpage.css">
+    <link rel="stylesheet" href="css/top-bar.css">
+    <link rel="stylesheet" href="css/main.css">
+
+
+    <title>Meme Me</title>
+</head>
+
+<body onload="init()">
+    <div class="top-bar flex align-center space-between">
+        <h2 class="">Just Generate</h2>
+        <div class="logo-box flex align-center space-around">
+            <div class="logo">⚡</div>
+        </div>
+    </div>
+    <div class="grid-main">
+        <div class="grid-container">
+            <div class="sand-box flex space-around display-none">
+                <canvas></canvas>
+                <div class="control-panel flex space-between align-center flex-column display-none">
+                    <div class="flex flex-column">
+                        <div>
+                            <div style="padding-left: 7px;">
+                                <span id="curr-idx">Line : 1</span>
+                                <button onclick="idxUp(this)" data-idx="0">🡩</button> <button class="delete-btn"
+                                    onclick="addLine(this)">✓</button><button class="delete-btn" onclick="deleteLine(this)">X</button></div>
+                        </div>
+                        <input onkeyup="getText(this)" data-idx="0" class="text-input" type="text" placeholder="type  Here"
+                            name="text-up" value="">
+                        <button class="down-arrow" onclick="idxDown(this)" data-idx="0">🡫</button>
+                    </div>
+                    <div class="position-arrows">
+                        <div class="position-arrow-top flex space-between ">
+                            <button onclick="textPosUp(this)" data-idx="0">🡄</button>
+                            <button onclick="ceneterText(this)" data-idx="0">||||</button>
+                            <button onclick="textPosDown(this)" data-idx="0">🡆</button>
+                        </div>
+                        <div class="flex space-between">
+                            <button onclick="textPosLeft(this)" data-idx="0">🡄</button>
+                            <button onclick="textPosRight(this)" data-idx="0">🡆</button>
+                        </div>
+                    </div>
+                    <div>
+                        <span>Size:</span><span class="font-size-num">35px</span>
+                        <input oninput="changeFont(this)" data-idx="0" type="range" min="12" max="64" name="fontsize"
+                            step="2" value="35" />
+                    </div>
+                    <input oninput="changeColor(this)" data-idx="0" class="color-input" type="color" name="color" value="#ffffff">
+                    <a onclick="downloadCanvas(this)">
+                        <button class="download-btn" onclick="downloadCanvas(this)">Download</button>
+                    </a>
+                    <div>
+                    </div>
+                </div>
+                <div class="Moblie-UI">
+                    <div class="moblie-control flex space-between">
+                        <input onkeyup="getText(this)" data-idx="0" class="text-input" type="text" placeholder="type  Here"
+                            name="text-up" value="">
+                        <div class="input-line-moblie"></div>
+                        <button class="delete-btn" onclick="deleteLine(this)">X</button>
+                        <button class="add-btn" onclick="addLine(this)">✓</button>
+                        <button class="down-arrow" onclick="idxDown(this)" data-idx="0">🡫</button>
+                        <button onclick="idxUp(this)" data-idx="0">🡩</button>
+                    </div>
+                    <div class="moblie-color-input">
+                        <input class="moblie-color-input" oninput="changeColor(this)" data-idx="0" class="color-input"
+                            type="color" name="color" value="#ffffff">
+                    </div>
+                    <span class="movement-txt">Text Movment Control</span>
+                    <div class="text-moblie-control">
+                        <button onclick="textPosLeft(this)" data-idx="0">🡄</button>
+                        <button onclick="textPosUp(this)" data-idx="0">🡅</button>
+                        <button onclick="ceneterText(this)" data-idx="0">&#9776</button>
+                        <button onclick="textPosDown(this)" data-idx="0">🡇</button>
+                        <button onclick="textPosRight(this)" data-idx="0">🡆</button>
+                    </div>
+                    <div class="download-btn-moblie">
+                        <a onclick="downloadCanvas(this)">
+                            <button class="download-btn" onclick="downloadCanvas(this)">Download</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- </div> -->
+        <h1>Pick A photo</h1>
+        <div class="gird-card">
+        </div>
+    </div>
+    </div>
+    <script src="js/util.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/service.js"></script>
+</body>
+
+</html>

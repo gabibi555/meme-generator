@@ -36,3 +36,7 @@
     position: absolute; /*in order to fix him inside the div*/
     left: 36%;/*should change dinamicaly with media queries */
 }
+canvas {
+    padding: 0;
+    display: block;
+}

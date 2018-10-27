@@ -2,9 +2,6 @@
 
 var gCanvas;
 var gCtx;
-var gX;
-var gY = 255;
-//funcation to create
 var gImgs = [{
     id: makeId(),
     url: 'meme-imgs/001.jpg',
@@ -26,35 +23,33 @@ var gImgs = [{
     keyword: 'cute'
 },
 ]
-//fix
+
 var gMeme = {
-    currImg: '',
-    txts: [
-        {
-            str: '',
-            size: '20px ',
-            font: 'impact',
-            color: '#ffffff',
-            posX: 255,
-            posY: 255,
-        }
-        ,],
+    isInput: false,
+    txtUp: '',
+    txtDown: '',
+    size: '',
+    color: '',
 }
 
 function getImgUrl(imgId) {
-    let currImg = gImgs.find(img => {
+    let currImg = gImgs.filter(img => {
         return img.id === imgId
     })
     return currImg;
 }
 
 function getSimilarKeyWord(keyword) {
-    let relatedImgs = gImgs.filter(img => {
-        return img.keyword === keyword
+    let relatedImgs = []
+    gImgs.map(img => {
+        if (img.keyword === keyword) {
+            relatedImgs.push(img)
+        }
     })
     return relatedImgs;
 }
 function searchValue(keyword) {
+    console.log(keyword)
     if (!keyword) {
         return renderImgs()
     }
@@ -67,16 +62,23 @@ function searchValue(keyword) {
     renderImgs(relatedImgs);
 }
 
-function updateText(txtToUpdate, idx = 0) {
-    let currTxt = gMeme.txts
-    let currLine = currTxt[0];
-    gMeme.txts[idx].str = txtToUpdate;
+function updateTextUp(txt) {
+    if (!gMeme.isInput) {
+        gMeme.isInput = true
+    } else {
+        gMeme.txtUp = txt
+    }
+}
+function updateTextDown(txt) {
+    if (!gMeme.isInput) {
+        gMeme.isInput = true
+    } else {
+        gMeme.txtDown = txt
+    }
 }
 
-function updateColor(elInput) {
-    let idx = +elInput.dataset.idx;
-    let currColor = gMeme.txts[idx];
-    currColor.color = elInput.value
+function updateColor(colorId) {
+    gMeme.color = colorId
 }
 
 
